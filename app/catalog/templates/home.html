@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vinewood Movie Catalog</title>
+</head>
+<body>
+
+    {% for movie in movies %}
+        <img src="static/images/{{ movie.image }}" alt="movie-image" height="200" width="134" class="img-rounded">
+        <h4>Title: {{ movie.title }}</h4>
+        <p>Director: {{ movie.director }}</p>
+        <p>Genre: {{ movie.genre }}</p>
+        <p>Rating: {{ movie.avg_rating }}</p>
+        <p>Length: {{ movie.length }}</p>
+        <p><a href="{{ url_for('main.display_studio', studio_id=movie.studio_id) }}">Studio Id: {{ movie.studio_id }}</a></p>
+    {% endfor %}
+
+</body>
+</html>
