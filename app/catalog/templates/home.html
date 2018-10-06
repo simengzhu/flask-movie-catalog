@@ -12,6 +12,8 @@
                         <p>Rating: {{ movie.avg_rating }}</p>
                         <p>Length: {{ movie.length }} mins</p>
                         <p><a href="{{ url_for('main.display_studio', studio_id=movie.studio_id) }}">Studio Id: {{ movie.studio_id }}</a></p>
+                        <span class="label label-info"><a href="{{ url_for('main.delete_movie', movie_id=movie.id) }}" style="color: floralwhite" >delete</a></span>
+                        <br><br>
                     </div>
                 {% endfor %}
             </div>

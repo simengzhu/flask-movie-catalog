@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h4 style="margin-left: 45px">Delete the movie?</h4>
+        <hr>
+        <p style="margin-left: 45px">
+            Movie Id: {{ movie.id }}<br>
+            Title: {{ movie.title }}<br>
+            Director: {{ movie.director }}
+        </p>
+        <form action="{{ url_for('main.delete_movie', movie_id=movie.id) }}" method="post" style="margin-left: 45px">
+            <button type="submit" class="btn btn-sm btn-primary">delete</button>
+        </form>
+    </div>
+{% endblock %}
