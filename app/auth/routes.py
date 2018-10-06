@@ -1,5 +1,5 @@
 from flask import render_template, request, flash, redirect, url_for
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, login_required, current_user
 from app.auth.forms import RegistrationForm, LoginForm
 from app.auth import authentication as at
 from app.catalog import main
@@ -10,6 +10,10 @@ from app.auth.models import User
 def register_user():
 
     form = RegistrationForm()
+
+    if current_user.is_authenticated:
+        flash('You have already logged in')
+        return redirect(url_for('main.display_movies'))
 
     if form.validate_on_submit():
         User.create_user(
@@ -26,6 +30,10 @@ def register_user():
 @at.route('/login', methods=['GET', 'POST'])
 def do_login():
 
+    if current_user.is_authenticated:
+        flash('You have already logged in')
+        return redirect(url_for('main.display_movies'))
+
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(user_email=form.email.data).first()
@@ -38,3 +46,10 @@ def do_login():
         return redirect(url_for('main.display_movies'))
 
     return render_template('login.html', form=form)
+
+
+@at.route('/logout')
+@login_required
+def log_out_user():
+    logout_user()
+    return redirect(url_for('main.display_movies'))
