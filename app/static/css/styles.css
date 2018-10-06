@@ -48,6 +48,12 @@ a, h3 {
     left: 40px;
 }
 
+.main-div {
+    padding: 25px;
+    position: relative;
+    left: 40px;
+}
+
 .ftr {
     padding: 25px;
 }
