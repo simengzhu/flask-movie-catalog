@@ -45,3 +45,5 @@ class Movie(db.Model):
 
     def __repr__(self):
         return '{} by {}'.format(self.title, self.director)
+
+
