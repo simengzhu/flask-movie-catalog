@@ -21,12 +21,14 @@
     <div class="wrapper">
         {# navigation bar #}
         {% block navbar %}
-            <nav class="navbar navbar-inverse">
-                <div class="container">
-                    <a class="navbar navbar-text" href="{{ url_for('main.display_movies') }}">
-                        <h3 class="title"> The Movie Catalog with An Attitude </h3>
-                    </a>
+            <nav class="navbar navbar-expand-md navbar-inverse">
+                <!--<div class="container">-->
+                <a class="navbar navbar-text catalog-title" href="{{ url_for('main.display_movies') }}">
+                    <h3 class="title"> The Movie Catalog with An Attitude </h3>
+                </a>
 
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="nav navbar-nav pull-right">
                         <li><a href="{{ url_for('main.display_movies') }}"> Home </a></li>
                         <li><a href="{{ url_for('authentication.register_user') }}"> Register </a></li>
@@ -47,6 +49,7 @@
                         </li>
                     </ul>
                 </div>
+                <!--</div>-->
             </nav>
         {% endblock navbar %}
 
