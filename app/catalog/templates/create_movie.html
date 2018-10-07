@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h4>Add a New Movie</h4>
+
+        {{ form.hidden_tag() }}
+        {{ wtf.quick_form(form) }}
+    </div>
+{% endblock %}
