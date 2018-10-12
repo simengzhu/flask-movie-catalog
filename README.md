@@ -29,4 +29,4 @@ Screenshots:
 ![Movie information update page](update-info-page.png?raw=true "Title")
 
 6. Create new movie page: 
-![Create new movie page](create-new-movie.png?raw=true "Title")
+![Create new movie page](create-new-movie-page.png?raw=true "Title")
